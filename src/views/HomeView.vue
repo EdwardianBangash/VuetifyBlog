@@ -1,9 +1,10 @@
 <template>
   <main>
-    Hello world
+    <h3>Hot Blogs</h3>
   </main>
 </template>
 <script>
+  
   export default {
 
   }

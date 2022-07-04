@@ -1,9 +1,15 @@
 <template>
-  <RouterView />
+  <the-navbar></the-navbar>
+  <router-view></router-view>
 </template>
 
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
+<script>
+import TheNavbar from './components/layouts/TheNavbar.vue'
+export default {
+  components: {
+    TheNavbar
+  }
+}
 </script>
 
 <style>
