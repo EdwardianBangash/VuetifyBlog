@@ -1,5 +1,5 @@
 <template>
-  <the-navbar v-if="isDashboard === '/dashboard'"></the-navbar>
+  <the-navbar v-if="isDashboard !== '/dashboard'"></the-navbar>
   <router-view></router-view>
 </template>
 
@@ -10,8 +10,12 @@ export default {
     TheNavbar
   },
   data(){
-    return {
-      isDashboard: this.$route.fullPath
+    return { 
+    }
+  },
+  computed: {
+    isDashboard(){
+      return this.$route.fullPath
     }
   }
 }
