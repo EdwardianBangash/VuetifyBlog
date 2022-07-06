@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DashboardHomeView from '../dashboard/TheHome.vue';
 import TheCategories from '../dashboard/TheCategories.vue';
+import EditCategory from '../dashboard/EditCategory.vue';
+import TheBlogs from '../dashboard/TheBlogs.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,6 +21,16 @@ const router = createRouter({
         {
           path: 'categories',
           component: TheCategories,
+        },
+        {
+          path: 'editCategory/:id',
+          name: 'editCategory',
+          component: EditCategory,
+          props: true
+        },
+        {
+          path: 'blogs',
+          component: TheBlogs,
         },
       ]
     }
