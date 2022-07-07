@@ -10,7 +10,7 @@
       <li class="dropdown">Categories</li>
       <ul class="child">
         <li><router-link to="/dashboard/categories">Category List</router-link></li>
-        <li><a href="">Add Category</a></li>
+        <li><router-link to="/dashboard/categories">Add Category</router-link></li>
       </ul>
     </ul>
   </div>
@@ -54,7 +54,7 @@ ul.child {
   display: none;
 }
 
-li {
+li{
   list-style-type: none;
   padding: 20px;
   font-size: 18px;

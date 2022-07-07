@@ -1,29 +1,22 @@
 <template>
-    <form>
+    <div class="wrapper">
+        <h2>Edit Category</h2>
+        <form>
         <div class="form-group">
             <label for="">Category Name:</label>
             <input type="text" class="form-control">   
         </div>
-        <button type="submit">Update Category</button>
+        <button type="submit" class="btn btn-submit">Update Category</button>
     </form>
+    </div>
 </template>
 
 <script>
 export default {
     
-}
+}   
 </script>
 
 <style scoped>
-/* form {
-    padding: 20px;
-}
 
-label {
-    display: block;
-}
-
-.form-control {
-    padding: 10px 5px;
-} */
 </style>

@@ -113,4 +113,33 @@ table tbody td {
 a.btn {
     text-decoration: none;
 }
+
+form {
+    background: #D8CA88;
+    width: 500px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+input {
+    width: 100%;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+label{
+    font-weight: bold;
+}
+
+.btn-submit{
+    margin-top: 10px;
+    padding: 10px;
+    background: rgb(20, 98, 187);
+}
+
+.btn-submit:hover{
+     background: rgb(9, 104, 212);
+}
 </style>
