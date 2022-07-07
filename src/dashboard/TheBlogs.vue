@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h2>Blog List</h2>
     <table>
       <tr>
         <th>#</th>
@@ -12,7 +13,7 @@
           <td>{{ blog.id }}</td>
           <td>{{ blog.title }}</td>
           <td>{{ blog.desc }}</td>
-          <button class="btn btn-edit">Edit</button>
+          <router-link :to="{name:'editBlog', params:{id:1}}" class="btn btn-edit">Edit</router-link>
           <button class="btn btn-delete">Delete</button>
         </tr>
       </tbody>

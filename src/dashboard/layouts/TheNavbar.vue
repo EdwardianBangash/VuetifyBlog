@@ -5,12 +5,12 @@
       <li class="dropdown">Blogs</li>
       <ul class="child">
         <li><router-link to="/dashboard/blogs">Blog List</router-link></li>
-        <li><router-link to="/dashboard/blogs">Add Blog</router-link></li>
+        <li><router-link :to="{name:'addBlog'}">Add Blog</router-link></li>
       </ul>
       <li class="dropdown">Categories</li>
       <ul class="child">
         <li><router-link to="/dashboard/categories">Category List</router-link></li>
-        <li><router-link to="/dashboard/categories">Add Category</router-link></li>
+        <li><router-link :to="{name:'addCategory'}">Add Category</router-link></li>
       </ul>
     </ul>
   </div>

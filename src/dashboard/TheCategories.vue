@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+        <h2>Category List</h2>
         <table cellspacing="0" cellpadding="0">
         <tr>
             <th>#</th>

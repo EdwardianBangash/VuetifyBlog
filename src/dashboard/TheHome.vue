@@ -122,15 +122,19 @@ form {
     border-radius: 2px;
 }
 
-input {
+.form-control {
     width: 100%;
     font-size: 15px;
-    padding: 5px;
-    margin-top: 5px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 label{
-    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form-group{
+    margin-top: 20px;
 }
 
 .btn-submit{
