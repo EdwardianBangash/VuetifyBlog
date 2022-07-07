@@ -1,5 +1,5 @@
 <template>
-  <div class="blogs-wrapper">
+  <div class="wrapper">
     <table>
       <tr>
         <th>#</th>
@@ -12,8 +12,8 @@
           <td>{{ blog.id }}</td>
           <td>{{ blog.title }}</td>
           <td>{{ blog.desc }}</td>
-          <button>Edit</button>
-          <button>Delete</button>
+          <button class="btn btn-edit">Edit</button>
+          <button class="btn btn-delete">Delete</button>
         </tr>
       </tbody>
     </table>
@@ -42,7 +42,5 @@ export default {
 </script>
 
 <style scoped>
-.blogs-wrapper {
-  margin: 50px;
-}
+
 </style>

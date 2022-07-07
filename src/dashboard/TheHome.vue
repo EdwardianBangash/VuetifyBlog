@@ -11,7 +11,7 @@
       <div class="card-total">10</div>
     </div>
     </div>
-  <router-view></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -30,10 +30,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+
 .dashboard-wrapper {
-  display: flex;
+    display: flex;
   flex-direction: row;
+}
+
+.wrapper {
+    margin: 50px;
+    flex-grow: 2;
 }
 
 .card-wrapper{
@@ -63,5 +69,48 @@ export default {
 
 .card-total {
     margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table th {
+    padding: 20px;
+}
+
+table tbody td {
+    padding: 10px;
+}
+
+.btn{
+   border: none;
+   padding: 5px 10px;
+   color: #fff;
+   cursor: pointer;
+   font-size: 15px;
+   border-radius: 2px;
+}
+
+.btn-delete{
+   background: rgb(220, 13, 13);
+    margin-left: 5px;
+}
+
+.btn-delete:hover{
+    background: rgb(202, 21, 21);
+}
+
+.btn-edit {
+     background: rgb(20, 98, 187);
+}
+
+.btn-edit:hover{
+     background: rgb(9, 104, 212);
+}
+
+a.btn {
+    text-decoration: none;
 }
 </style>
