@@ -5,31 +5,30 @@
       <div  class="blogs-content">
       <h4>{{ blog.title }}</h4>
       <p>{{ blog.desc }}</p>
-      <button class="readmore-btn">Read More</button>
+      <router-link class="readmore-btn" :to="{name:'blogView', params:{id:blog.id}}">Read More</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      blogs: [
-        {
-          id: 1,
-          title: "lorem ipsum",
-          desc: "lorem ipsum dolor sit amet, consectet",
-        },
-        {
-          id: 2,
-          title: "lorem ipsum",
-          desc: "lorem ipsum dolor sit amet, consectet",
-        },
-      ],
+      blogs: [],
       selectedTab: "Entertainment",
     };
   },
+   mounted(){
+    axios.get('/blogs').then((response)=>{
+      for(let i = 0; i < response.data.data.length; i++){
+        this.blogs.push(response.data.data[i]);
+      }
+    }).catch((error)=>{
+
+    })
+  }
 };
 </script>
 

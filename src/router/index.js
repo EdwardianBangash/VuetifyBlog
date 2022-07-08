@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import BlogView from '../views/BlogView.vue'
 import DashboardHomeView from '../dashboard/TheHome.vue';
 import TheCategories from '../dashboard/TheCategories.vue';
 import EditCategory from '../dashboard/EditCategory.vue';
@@ -15,6 +16,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/blog/:id',
+      name: 'blogView',
+      component: BlogView
     },
     {
       path: '/dashboard',

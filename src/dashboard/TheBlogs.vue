@@ -22,23 +22,20 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   data() {
     return {
-      blogs: [
-        {
-          id: 1,
-          title: "lorem ipsum",
-          desc: "lorem ipsum dolor sit amet, consectet",
-        },
-        {
-          id: 2,
-          title: "lorem ipsum",
-          desc: "lorem ipsum dolor sit amet, consectet",
-        },
-      ],
+      blogs: [],
     };
   },
+  mounted(){
+    axios.get('/userBlogs').then((response)=>{
+      this.blogs.push(response.data.data);
+    }).catch((error)=>{
+
+    })
+  }
 };
 </script>
 
