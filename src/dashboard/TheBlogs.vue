@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <h2>Blog List</h2>
+    <div class="message">{{message}}</div>
     <table>
       <tr>
         <th>#</th>
@@ -24,7 +25,7 @@
                 })
               "
             >Edit</button>
-            <button class="btn btn-delete">Delete</button>
+            <button class="btn btn-delete" @click="deleteBlog(blog.id)">Delete</button>
           </div>
         </tr>
       </tbody>
@@ -38,6 +39,7 @@ export default {
   data() {
     return {
       blogs: [],
+      message: null
     };
   },
   mounted() {
@@ -51,6 +53,17 @@ export default {
       .catch((error) => {});
   },
   methods: {
+    deleteBlog(deleteId) {
+      axios
+        .post("/deleteBlog", {id:deleteId})
+        .then((response) => {
+            this.blogs = this.blogs.filter((i)=>i.id != deleteId);
+            this.message = response.data.success;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     editBlog(payload){
       this.$store.dispatch('blogId', payload.id);
       this.$store.dispatch('blogTitle', payload.title);

@@ -4,7 +4,7 @@
     <div v-for="blog in blogs" :key="blog.id">
       <div  class="blogs-content">
       <h4>{{ blog.title }}</h4>
-      <p>{{ blog.desc }}</p>
+      <p>{{ blog.description }}</p>
       <router-link class="readmore-btn" :to="{name:'blogView', params:{id:blog.id}}">Read More</router-link>
       </div>
     </div>
