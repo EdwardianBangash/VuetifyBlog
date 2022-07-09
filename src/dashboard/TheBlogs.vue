@@ -11,10 +11,16 @@
       <tbody>
         <tr v-for="blog in blogs" :key="blog.id">
           <td>{{ blog.id }}</td>
-          <td>{{ blog.title }}</td>
-          <td>{{ blog.desc }}</td>
-          <router-link :to="{name:'editBlog', params:{id:1}}" class="btn btn-edit">Edit</router-link>
-          <button class="btn btn-delete">Delete</button>
+          <td class="blog-title">{{ blog.title }}</td>
+          <td class="blog-desc">{{ blog.description }}</td>
+          <div class="btn-group">
+            <router-link
+              :to="{ name: 'editBlog', params: { id: 1 } }"
+              class="btn btn-edit"
+              >Edit</router-link
+            >
+            <button class="btn btn-delete">Delete</button>
+          </div>
         </tr>
       </tbody>
     </table>
@@ -22,23 +28,29 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
   data() {
     return {
       blogs: [],
     };
   },
-  mounted(){
-    axios.get('/userBlogs').then((response)=>{
-      this.blogs.push(response.data.data);
-    }).catch((error)=>{
-
-    })
-  }
+  mounted() {
+    axios
+      .get("/userBlogs")
+      .then((response) => {
+        for (let i = 0; i < response.data.data.length; i++) {
+          this.blogs.push(response.data.data[i]);
+        }
+      })
+      .catch((error) => {});
+  },
 };
 </script>
 
 <style scoped>
+td.blog-title,.blog-desc{
+  text-align: justify;
+}
 
 </style>

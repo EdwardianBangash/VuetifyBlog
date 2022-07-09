@@ -1,18 +1,52 @@
 <template>
   <div class="navbar-wrapper">
     <h2 href="/">Vuetifyblog</h2>
-    <ul>
-      <li><a href="" class="link active">Entertainment</a></li>
-      <li><a href="" class="link">Sports</a></li>
-      <li><a href="" class="link">Technology</a></li>
-      <li><a href="" class="link">Showbiz</a></li>
-      <li><a href="" class="link">Inventions</a></li>
+    <ul  v-for="cat in categories" :key="cat.id">
+      <li>
+        <a href="" class="link">{{cat.name}}</a>
+      </li>
     </ul>
+      <div class="logins-wrapper" v-if="isLoggedIn">
+        <li><router-link to="/login" class="link">Login</router-link></li>
+        <li><router-link to="/register" class="link">Register</router-link></li>
+      </div>
+      <div class="logins-wrapper" v-else>
+        <li><button class="btn logout-btn" @click="logout">Logout</button></li>
+      </div>
   </div>
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  data() {
+    return {
+      categories: [],
+    };
+  },
+  mounted() {
+    axios
+      .get("/allCategories")
+      .then((response) => {
+        for (let i = 0; i < response.data.data.length; i++) {
+          this.categories.push(response.data.data[i]);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.user === null;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("user", null);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -41,7 +75,19 @@ a.link {
 }
 
 a.active {
-    background: #fff;
-    padding: 15px 5px;
+  background: #fff;
+  padding: 15px 5px;
+}
+
+.logins-wrapper {
+  padding-top: 20px;
+}
+
+.logout-btn {
+  background: rgb(164, 67, 67);
+}
+
+.logout-btn:hover {
+  background: rgb(201, 55, 55);
 }
 </style>

@@ -7,11 +7,13 @@
         <li><router-link to="/dashboard/blogs">Blog List</router-link></li>
         <li><router-link :to="{name:'addBlog'}">Add Blog</router-link></li>
       </ul>
-      <li class="dropdown">Categories</li>
+      <div class="cat-wrappper" v-if="isAdmin">
+        <li class="dropdown">Categories</li>
       <ul class="child">
         <li><router-link to="/dashboard/categories">Category List</router-link></li>
         <li><router-link :to="{name:'addCategory'}">Add Category</router-link></li>
       </ul>
+      </div>
     </ul>
   </div>
 </template>
@@ -30,6 +32,11 @@ export default {
     });
     }
   },
+  computed:{
+    isAdmin(){
+      return this.$store.getters.role === 'admin';
+    }
+  }
 };
 </script>
 

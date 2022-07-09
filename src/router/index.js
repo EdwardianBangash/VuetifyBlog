@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import BlogView from '../views/BlogView.vue'
+import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/RegisterView.vue'
 import DashboardHomeView from '../dashboard/TheHome.vue';
 import TheCategories from '../dashboard/TheCategories.vue';
 import EditCategory from '../dashboard/EditCategory.vue';
@@ -21,6 +23,16 @@ const router = createRouter({
       path: '/blog/:id',
       name: 'blogView',
       component: BlogView
+    },
+    {
+      path: '/login',
+      name: 'loginView',
+      component: LoginView
+    },
+    {
+      path: '/register',
+      name: 'registerView',
+      component: RegisterView
     },
     {
       path: '/dashboard',

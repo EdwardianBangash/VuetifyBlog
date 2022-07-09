@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     isDashboard() {
-      return this.$route.fullPath.includes("/dashboard");
+      return this.$route.fullPath.includes("/dashboard") || this.$route.fullPath.includes("/login") || this.$route.fullPath.includes("/register");
     },
   },
 };
@@ -27,4 +27,30 @@ export default {
   box-sizing: border-box;
   font-family: tahoma,sans-serif;
 }
+
+
+.login-wrapper h2{
+  text-align: center;
+  padding: 50px;
+}
+
+.login-wrapper form{
+  margin: 0 auto;
+  width: 400px;
+}
+
+.register-wrapper h2{
+  text-align: center;
+  padding: 50px;
+}
+
+.register-wrapper form{
+  margin: 0 auto;
+  width: 400px;
+}
+
+.btn-group{
+  display: flex;
+}
+
 </style>
