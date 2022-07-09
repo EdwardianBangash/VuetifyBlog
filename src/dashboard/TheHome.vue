@@ -26,6 +26,11 @@ export default {
     dashboardHome(){
         return this.$route.fullPath.includes("/dashboard/");
     }
+  },
+  mounted(){ 
+    if(this.$store.getters.user === null){
+      this.$router.go(-1);
+    }
   }
 };
 </script>

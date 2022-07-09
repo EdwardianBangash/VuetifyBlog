@@ -14,11 +14,16 @@
           <td class="blog-title">{{ blog.title }}</td>
           <td class="blog-desc">{{ blog.description }}</td>
           <div class="btn-group">
-            <router-link
-              :to="{ name: 'editBlog', params: { id: 1 } }"
+            <button
               class="btn btn-edit"
-              >Edit</router-link
-            >
+              @click="
+                editBlog({
+                  id: blog.id,
+                  title: blog.title,
+                  description: blog.description,
+                })
+              "
+            >Edit</button>
             <button class="btn btn-delete">Delete</button>
           </div>
         </tr>
@@ -45,12 +50,20 @@ export default {
       })
       .catch((error) => {});
   },
+  methods: {
+    editBlog(payload){
+      this.$store.dispatch('blogId', payload.id);
+      this.$store.dispatch('blogTitle', payload.title);
+      this.$store.dispatch('blogDescription', payload.description);
+      this.$router.push({name:'editBlog', params:{id: payload.id}});
+    }
+  }
 };
 </script>
 
 <style scoped>
-td.blog-title,.blog-desc{
+td.blog-title,
+.blog-desc {
   text-align: justify;
 }
-
 </style>

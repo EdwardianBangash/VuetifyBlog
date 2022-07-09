@@ -41,6 +41,7 @@ const router = createRouter({
       children: [
         {
           path: 'categories',
+          name: 'theCategories',
           component: TheCategories,
         },
         {
@@ -57,6 +58,7 @@ const router = createRouter({
         },
         {
           path: 'blogs',
+          name:'theBlog',
           component: TheBlogs,
         },
         {

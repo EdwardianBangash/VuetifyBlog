@@ -1,18 +1,21 @@
 <template>
   <div class="navbar-wrapper">
     <h2 href="/">Vuetifyblog</h2>
-    <ul  v-for="cat in categories" :key="cat.id">
-      <li>
-        <a href="" class="link">{{cat.name}}</a>
-      </li>
-    </ul>
-      <div class="logins-wrapper" v-if="isLoggedIn">
-        <li><router-link to="/login" class="link">Login</router-link></li>
-        <li><router-link to="/register" class="link">Register</router-link></li>
-      </div>
-      <div class="logins-wrapper" v-else>
-        <li><button class="btn logout-btn" @click="logout">Logout</button></li>
-      </div>
+    <div class="navbar">
+      <ul v-for="cat in categories" :key="cat.id">
+        <li>
+          <a href="" class="link">{{ cat.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="logins-wrapper" v-if="isLoggedIn">
+    <router-link to="/login" class="link">Login</router-link>
+    <router-link to="/register" class="link">Register</router-link>
+  </div>
+  <div class="logins-wrapper" v-else>
+    <router-link to="/dashboard">Dashboard</router-link>
+    <button class="btn logout-btn" @click="logout">Logout</button>
   </div>
 </template>
 
@@ -58,6 +61,11 @@ export default {
   padding: 20px 10px;
 }
 
+.navbar{
+  flex-grow: 2;
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
   text-align: right;
@@ -80,7 +88,9 @@ a.active {
 }
 
 .logins-wrapper {
-  padding-top: 20px;
+  position: absolute;
+  right: 10px;
+  top: 70px;
 }
 
 .logout-btn {

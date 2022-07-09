@@ -13,11 +13,15 @@
           <td>{{ cat.id }}</td>
           <td>{{ cat.name }}</td>
           <td>
-            <router-link
+             <button
               class="btn btn-edit"
-              :to="{ name: 'editCategory', params: { id: 1 } }"
-              >Edit</router-link
-            >
+              @click="
+                editCategory({
+                  id: cat.id,
+                  name: cat.name
+                })
+              "
+            >Edit</button>
             <button class="btn btn-delete" @click="deleteCategory(cat.id)">
               Delete
             </button>
@@ -61,6 +65,10 @@ export default {
           console.log(error);
         });
     },
+    editCategory(payload){
+      this.$store.dispatch('categoryName', payload.name);
+      this.$router.push({name:'editCategory', params:{id: payload.id}});
+    }
   },
 };
 </script>

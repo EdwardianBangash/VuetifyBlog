@@ -2,6 +2,9 @@
   <div class="navbar">
     <button class="close-menu">X</button>
     <ul class="menu">
+      <li>
+        <router-link to="/">Home</router-link>
+      </li>
       <li class="dropdown">Blogs</li>
       <ul class="child">
         <li><router-link to="/dashboard/blogs">Blog List</router-link></li>
