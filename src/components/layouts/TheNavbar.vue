@@ -3,9 +3,7 @@
     <router-link to="/" class="logo">Vuetifyblog</router-link>
     <div class="navbar">
       <ul v-for="cat in categories" :key="cat.id">
-        <li>
-          <a href="" class="link">{{ cat.name }}</a>
-        </li>
+        <li class="link" @click="loadThis(cat.id)">{{ cat.name }}</li>
       </ul>
       <div>
         <div class="logins-wrapper" v-if="isLoggedIn">
@@ -75,7 +73,7 @@ ul {
   text-align: right;
 }
 
-a.link {
+.link {
   text-decoration: none;
   padding-left: 10px;
   color: #000;

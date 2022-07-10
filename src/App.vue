@@ -1,14 +1,10 @@
 <template>
-  <the-navbar v-if="!isDashboard"></the-navbar>
+  <!-- <the-navbar v-if="!isDashboard"></the-navbar> -->
   <router-view></router-view>
 </template>
 
 <script>
-import TheNavbar from "./components/layouts/TheNavbar.vue";
 export default {
-  components: {
-    TheNavbar,
-  },
   data() {
     return {};
   },
