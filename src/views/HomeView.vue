@@ -40,6 +40,11 @@ export default {
       categories: [],
     };
   },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.user === null;
+    },
+  },
   methods: {
     loadThis(id){
       this.blogs = [];

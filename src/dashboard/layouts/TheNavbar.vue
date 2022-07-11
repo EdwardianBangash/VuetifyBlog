@@ -16,6 +16,9 @@
         <li><router-link to="/dashboard/categories">Category List</router-link></li>
         <li><router-link :to="{name:'addCategory'}">Add Category</router-link></li>
       </ul>
+      <li>
+        <button @click="logout" class="btn">Logout</button>
+      </li>
       </div>
     </ul>
   </div>
@@ -38,6 +41,12 @@ export default {
   computed:{
     isAdmin(){
       return this.$store.getters.role === 'admin';
+    }
+  },
+  methods: {
+    logout(){
+      this.$store.dispatch('user', null);
+      this.$router.push('/');
     }
   }
 };
@@ -112,5 +121,9 @@ a {
   100% {
     transform: rotate(-180deg);
   }
+}
+
+.btn{
+  color: #000;
 }
 </style>
